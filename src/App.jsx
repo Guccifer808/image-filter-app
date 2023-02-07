@@ -17,7 +17,7 @@ function App() {
         <Grid item xs={12} md={5}>
           <FiltersSection />
           <Filter />
-          <AdvancedFilter />
+          {/* <AdvancedFilter /> */}
         </Grid>
       </Grid>
     </Container>
