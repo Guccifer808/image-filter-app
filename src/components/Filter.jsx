@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { useContext } from 'react';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Box } from '@mui/system';
 import { filterValues } from '../utils/filterValues';
+import { FilterContext } from '../App';
 const Filter = () => {
   //state
-  const [filterType, setFilterType] = useState('');
+  const { filterType, setFilterType } = useContext(FilterContext);
   //onChange handle
   const handleChange = (e) => {
     setFilterType(e.target.value);
@@ -15,7 +17,7 @@ const Filter = () => {
         <Select value={filterType} onChange={handleChange} label='filter'>
           {/* Mapping through filterValues */}
           {filterValues.map((filter) => (
-            <MenuItem value={filter.class} key={filter.name}>
+            <MenuItem value={filter.class} key={filter.class}>
               {filter.name}
             </MenuItem>
           ))}
