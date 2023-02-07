@@ -40,7 +40,11 @@ const ImageSection = () => {
   return (
     <Grid item xs={12} md={7}>
       <StyledBox onClick={() => uploadRef.current && uploadRef.current.click()}>
-        {imageFile ? renderImage() : <p>Upload your image</p>}
+        {imageFile ? (
+          renderImage()
+        ) : (
+          <p style={{ fontSize: 24, color: 'white' }}>Upload your image</p>
+        )}
       </StyledBox>
       {/* input that takes any image file extensions */}
       <input
@@ -51,7 +55,7 @@ const ImageSection = () => {
         onChange={handleInputChange}
       />
       <Button disabled={!imageFile} variant='contained' fullWidth>
-        TEST
+        Upload New Image
       </Button>
     </Grid>
   );
