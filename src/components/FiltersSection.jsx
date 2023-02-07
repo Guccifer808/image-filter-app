@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material';
+import { styled } from '@mui/system';
 
 const FiltersSection = () => {
   return (
