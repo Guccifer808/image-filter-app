@@ -5,7 +5,6 @@ import { filterValues } from '../utils/filterValues';
 
 const Filter = () => {
   //state
-  // const { filterType, setFilterType } = useContext(FilterContext);
   const [filterClass, setFilterClass] = useState('');
   //onChange handle
   const handleChange = (e) => {
