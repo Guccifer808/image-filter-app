@@ -33,7 +33,13 @@ function App() {
   return (
     <FilterContext.Provider value={value}>
       <Container sx={{ marginTop: '5rem', marginBottom: '5rem' }}>
-        <Box sx={{ textAlign: 'center', marginBottom: '5rem' }}>
+        <Box
+          sx={{
+            textAlign: 'center',
+            marginBottom: '5rem',
+            fontFamily: 'Roboto',
+          }}
+        >
           <h1>Image Filter</h1>
         </Box>
         {/* Image section */}
