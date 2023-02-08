@@ -37,7 +37,7 @@ function App() {
           sx={{
             textAlign: 'center',
             marginBottom: '5rem',
-            fontFamily: 'Roboto',
+            fontFamily: 'Roboto Mono',
           }}
         >
           <h1>Image Filter</h1>
