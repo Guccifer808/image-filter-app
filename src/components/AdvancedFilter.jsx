@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import FilterSlider from './FilterSlider';
 
 const AdvancedFilter = () => {
-  const dragSlider = [
+  const slider = [
     { label: 'Brightness', defaultValue: 100, field: 'brightness' },
     { label: 'Contrast', defaultValue: 100, field: 'contrast' },
     { label: 'Saturation', defaultValue: 100, field: 'saturation' },
@@ -11,8 +11,8 @@ const AdvancedFilter = () => {
   ];
   return (
     <Box sx={{ marginTop: '2rem' }}>
-      {dragSlider.map((slider) => (
-        <FilterSlider slider={slider} key={slider.label} />
+      {slider.map((slide) => (
+        <FilterSlider slide={slide} key={slide.field} />
       ))}
     </Box>
   );

@@ -9,8 +9,12 @@ import ImageSection from './components/ImageSection';
 export const FilterContext = createContext();
 
 function App() {
-  const [filterType, setFilterType] = useState('Filter');
-  const value = { filterType, setFilterType };
+  const [sectionFilter, setSectionFilter] = useState('filtertest');
+
+  const value = {
+    sectionFilter,
+    setSectionFilter,
+  };
 
   return (
     <FilterContext.Provider value={value}>
@@ -24,7 +28,7 @@ function App() {
           {/* Filters section */}
           <Grid item xs={12} md={5}>
             <FiltersSection />
-            {filterType === 'filter' ? <Filter /> : <AdvancedFilter />}
+            {sectionFilter === 'filtertest' ? <Filter /> : <AdvancedFilter />}
           </Grid>
         </Grid>
       </Container>

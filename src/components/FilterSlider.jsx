@@ -1,9 +1,9 @@
 import { Box, Slider } from '@mui/material';
 import { useState } from 'react';
 
-const FilterSlider = ({ slider }) => {
+const FilterSlider = ({ slide }) => {
   //destructuring
-  const { label, defaultValue, field } = slider;
+  const { label, defaultValue, field } = slide;
   //state for slider
   const [value, setValue] = useState(defaultValue);
   //onChange handler
