@@ -4,7 +4,8 @@ import AdvancedFilter from './components/AdvancedFilter';
 import Filter from './components/Filter';
 import FiltersSection from './components/FiltersSection';
 import ImageSection from './components/ImageSection';
-
+import { TypeAnimation } from 'react-type-animation';
+import { filterValues } from './utils/filterValues';
 //creating context to use state from Filter component in App component
 export const FilterContext = createContext();
 
@@ -29,7 +30,8 @@ function App() {
     advancedFilter,
     setAdvancedFilter,
   };
-
+  //values for TypeAnimation
+  let names = filterValues.map((item) => item.name);
   return (
     <FilterContext.Provider value={value}>
       <Container sx={{ marginTop: '5rem', marginBottom: '5rem' }}>
@@ -41,6 +43,15 @@ function App() {
           }}
         >
           <h1>Image Filter</h1>
+          {/* Animated filters list */}
+          <TypeAnimation
+            sequence={names}
+            wrapper='div'
+            speed={350}
+            cursor={true}
+            repeat={Infinity}
+            style={{ fontSize: '1.5em' }}
+          />
         </Box>
         {/* Image section */}
         <Grid container spacing={10}>

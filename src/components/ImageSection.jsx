@@ -71,7 +71,7 @@ const ImageSection = () => {
         {imageFile ? (
           renderImage()
         ) : (
-          <p style={{ fontSize: 24, color: 'white' }}>Download Image</p>
+          <p style={{ fontSize: 24, color: 'white' }}>Upload New Image</p>
         )}
       </StyledBox>
       {/* input that takes any image file extensions */}
@@ -88,7 +88,7 @@ const ImageSection = () => {
         fullWidth
         onClick={handleClick}
       >
-        Upload New Image
+        Download Image
       </Button>
     </Grid>
   );
