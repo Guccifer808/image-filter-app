@@ -31,10 +31,15 @@ const ImageSection = () => {
   const [imageFile, setImageFile] = useState(null);
   //for applying filter to imageSection
   const { filterClass, advancedFilter } = useContext(FilterContext);
-
+  //ref to download the final img
+  const imgDownloadRef = useRef(null);
   //onChange handler. Storing the image with URL.createObjectURL and accessing 1st file in arr
   const handleInputChange = (e) => {
     setImageFile(URL.createObjectURL(e.target.files[0]));
+  };
+  //onClick handler to download the final image
+  const handleClick = () => {
+    console.log(imgDownloadRef);
   };
   //function to live render image
   const renderImage = () => (
@@ -44,6 +49,7 @@ const ImageSection = () => {
         src={imageFile}
         alt='filter content'
         className={filterClass}
+        ref={imgDownloadRef}
       />
     </figure>
   );
@@ -54,7 +60,7 @@ const ImageSection = () => {
         {imageFile ? (
           renderImage()
         ) : (
-          <p style={{ fontSize: 24, color: 'white' }}>Upload your image</p>
+          <p style={{ fontSize: 24, color: 'white' }}>Download Image</p>
         )}
       </StyledBox>
       {/* input that takes any image file extensions */}
@@ -65,7 +71,12 @@ const ImageSection = () => {
         ref={uploadRef}
         onChange={handleInputChange}
       />
-      <Button disabled={!imageFile} variant='contained' fullWidth>
+      <Button
+        disabled={!imageFile}
+        variant='contained'
+        fullWidth
+        onClick={handleClick}
+      >
         Upload New Image
       </Button>
     </Grid>
