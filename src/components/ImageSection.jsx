@@ -17,11 +17,12 @@ const StyledBox = styled(Box)({
   cursor: 'pointer',
 });
 
-const StyledImage = styled('img')({
+const StyledImage = styled('img')((props) => ({
   width: '100%',
   height: '100%',
   objectFit: 'contain',
-});
+  filter: `brightness(${props.advancedFilter.brightness}%) contrast(${props.advancedFilter.contrast}%) saturation(${props.advancedFilter.saturation}%) sepia(${props.advancedFilter.sepia}%) grayScale(${props.advancedFilter.grayscale}%)`,
+}));
 
 const ImageSection = () => {
   //ref for input
@@ -29,7 +30,7 @@ const ImageSection = () => {
   //state for storing the image
   const [imageFile, setImageFile] = useState(null);
   //for applying filter to imageSection
-  const { filterClass } = useContext(FilterContext);
+  const { filterClass, advancedFilter } = useContext(FilterContext);
 
   //onChange handler. Storing the image with URL.createObjectURL and accessing 1st file in arr
   const handleInputChange = (e) => {
@@ -39,6 +40,7 @@ const ImageSection = () => {
   const renderImage = () => (
     <figure style={{ width: '100%', height: '100%' }}>
       <StyledImage
+        advancedFilter={!filterClass && advancedFilter}
         src={imageFile}
         alt='filter content'
         className={filterClass}

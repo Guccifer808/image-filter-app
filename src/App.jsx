@@ -12,11 +12,22 @@ function App() {
   const [sectionFilter, setSectionFilter] = useState('filtertest');
   //for applying filter to imageSection
   const [filterClass, setFilterClass] = useState('');
+  //advanced filter state for slider drag
+  const [advancedFilter, setAdvancedFilter] = useState({
+    brightness: 100,
+    contrast: 100,
+    saturation: 100,
+    sepia: 0,
+    grayscale: 0,
+  });
+  //context provider value
   const value = {
     sectionFilter,
     setSectionFilter,
     filterClass,
     setFilterClass,
+    advancedFilter,
+    setAdvancedFilter,
   };
 
   return (
