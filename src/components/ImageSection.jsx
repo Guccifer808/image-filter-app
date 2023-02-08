@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Grid, Box, Button } from '@mui/material';
 import { styled } from '@mui/system';
-
+import { FilterContext } from './../App';
+//picturepan instagram filters
+import '../styles/instagram.css';
 //styling
 const StyledBox = styled(Box)({
   display: 'flex',
@@ -26,6 +28,9 @@ const ImageSection = () => {
   const uploadRef = useRef(null);
   //state for storing the image
   const [imageFile, setImageFile] = useState(null);
+  //for applying filter to imageSection
+  const { filterClass } = useContext(FilterContext);
+
   //onChange handler. Storing the image with URL.createObjectURL and accessing 1st file in arr
   const handleInputChange = (e) => {
     setImageFile(URL.createObjectURL(e.target.files[0]));
@@ -33,7 +38,11 @@ const ImageSection = () => {
   //function to live render image
   const renderImage = () => (
     <figure style={{ width: '100%', height: '100%' }}>
-      <StyledImage src={imageFile} alt='filter content' />
+      <StyledImage
+        src={imageFile}
+        alt='filter content'
+        className={filterClass}
+      />
     </figure>
   );
 

@@ -10,10 +10,13 @@ export const FilterContext = createContext();
 
 function App() {
   const [sectionFilter, setSectionFilter] = useState('filtertest');
-
+  //for applying filter to imageSection
+  const [filterClass, setFilterClass] = useState('');
   const value = {
     sectionFilter,
     setSectionFilter,
+    filterClass,
+    setFilterClass,
   };
 
   return (
