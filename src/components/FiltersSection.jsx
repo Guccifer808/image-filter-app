@@ -5,11 +5,16 @@ import { FilterContext } from '../App';
 
 const FiltersSection = () => {
   //filter state
-  const { sectionFilter, setSectionFilter } = useContext(FilterContext);
+  const { sectionFilter, setSectionFilter, setFilterClass } =
+    useContext(FilterContext);
 
   //handle change for colored mui tabs
   const handleChange = (e, newValue) => {
     setSectionFilter(newValue);
+    //reset filter after click on advanced filter section
+    if (newValue === 'advancedFilter') {
+      setFilterClass('');
+    }
   };
   return (
     <Box sx={{ marginBottom: '2rem' }}>
@@ -19,7 +24,7 @@ const FiltersSection = () => {
         value={sectionFilter}
         onChange={handleChange}
       >
-        <Tab value='filtertest' label='Filter' />
+        <Tab value='filter' label='Filter' />
         <Tab value='advancedFilter' label='Advanced Filter' />
       </Tabs>
     </Box>

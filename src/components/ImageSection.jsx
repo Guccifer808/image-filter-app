@@ -21,7 +21,7 @@ const StyledImage = styled('img')((props) => ({
   width: '100%',
   height: '100%',
   objectFit: 'contain',
-  filter: `brightness(${props.advancedFilter.brightness}%) contrast(${props.advancedFilter.contrast}%) saturation(${props.advancedFilter.saturation}%) sepia(${props.advancedFilter.sepia}%) grayScale(${props.advancedFilter.grayscale}%)`,
+  filter: `brightness(${props.advancedFilter.brightness}%) contrast(${props.advancedFilter.contrast}%) saturate(${props.advancedFilter.saturate}%) sepia(${props.advancedFilter.sepia}%) grayScale(${props.advancedFilter.gray}%)`,
 }));
 
 const ImageSection = () => {

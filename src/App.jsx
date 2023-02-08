@@ -9,16 +9,16 @@ import ImageSection from './components/ImageSection';
 export const FilterContext = createContext();
 
 function App() {
-  const [sectionFilter, setSectionFilter] = useState('filtertest');
+  const [sectionFilter, setSectionFilter] = useState('filter');
   //for applying filter to imageSection
   const [filterClass, setFilterClass] = useState('');
   //advanced filter state for slider drag
   const [advancedFilter, setAdvancedFilter] = useState({
     brightness: 100,
     contrast: 100,
-    saturation: 100,
+    saturate: 100,
     sepia: 0,
-    grayscale: 0,
+    gray: 0,
   });
   //context provider value
   const value = {
@@ -42,7 +42,7 @@ function App() {
           {/* Filters section */}
           <Grid item xs={12} md={5}>
             <FiltersSection />
-            {sectionFilter === 'filtertest' ? <Filter /> : <AdvancedFilter />}
+            {sectionFilter === 'filter' ? <Filter /> : <AdvancedFilter />}
           </Grid>
         </Grid>
       </Container>
