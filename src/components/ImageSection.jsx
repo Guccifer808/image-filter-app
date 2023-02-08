@@ -2,6 +2,10 @@ import { useContext, useRef, useState } from 'react';
 import { Grid, Box, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import { FilterContext } from './../App';
+//dom-to-img to download final img
+import domtoimage from 'dom-to-image';
+//to use it with dom-to-image
+import { saveAs } from 'file-saver';
 //picturepan instagram filters
 import '../styles/instagram.css';
 //styling
@@ -37,9 +41,16 @@ const ImageSection = () => {
   const handleInputChange = (e) => {
     setImageFile(URL.createObjectURL(e.target.files[0]));
   };
-  //onClick handler to download the final image
+  //onClick handler to download the final image via dom-to-img pkg
   const handleClick = () => {
-    console.log(imgDownloadRef);
+    domtoimage
+      .toBlob(imgDownloadRef.current)
+      .then(function (blob) {
+        saveAs(blob, `ImageFilter_${new Date().toJSON().slice(0, 10)}.png`);
+      })
+      .catch(function (error) {
+        alert(`Error has occurred!`, error);
+      });
   };
   //function to live render image
   const renderImage = () => (
