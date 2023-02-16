@@ -5,7 +5,7 @@ import Filter from './components/Filter';
 import FiltersSection from './components/FiltersSection';
 import ImageSection from './components/ImageSection';
 import { TypeAnimation } from 'react-type-animation';
-import { filterValues } from './utils/filterValues';
+import { filterValues } from './utils/FilterValues';
 //creating context to use state from Filter component in App component
 export const FilterContext = createContext();
 
